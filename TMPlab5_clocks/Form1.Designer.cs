@@ -258,6 +258,7 @@ namespace TMPlab5_clocks
             this.MaximumSize = new System.Drawing.Size(700, 270);
             this.MinimumSize = new System.Drawing.Size(700, 270);
             this.Name = "Form1";
+            this.Text = "Лабораторная работа №5";
             ((System.ComponentModel.ISupportInitialize)(this.AnalogSeconds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogHours)).EndInit();
