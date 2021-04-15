@@ -40,7 +40,7 @@ namespace TMPlab5_clocks
 
             Pen HourPen = new Pen(Color.Black, 5);//создаем ручки разной толщины для рисования
             Pen MinPen = new Pen(Color.Black, 3);
-            Pen SecPen = new Pen(Color.Black, 2);
+            Pen SecPen = new Pen(Color.Red, 2);
 
             graphics.DrawLine(HourPen, offset + r, offset + r, x1 + offset * 6, y1 + offset * 6);//стрелка часы
             graphics.DrawLine(MinPen, offset + r, offset + r, x2 + offset * 6, y2 + offset * 6);//стрелка минуты
