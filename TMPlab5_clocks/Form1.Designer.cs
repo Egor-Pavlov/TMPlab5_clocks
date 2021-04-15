@@ -29,6 +29,7 @@ namespace TMPlab5_clocks
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.ShowTime1 = new System.Windows.Forms.Button();
             this.AnalogSeconds = new System.Windows.Forms.NumericUpDown();
             this.AnalogMinutes = new System.Windows.Forms.NumericUpDown();
@@ -43,6 +44,7 @@ namespace TMPlab5_clocks
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ShowTime2 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AnalogSeconds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogHours)).BeginInit();
@@ -170,18 +172,17 @@ namespace TMPlab5_clocks
             this.label1.BackColor = System.Drawing.Color.White;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(392, 79);
+            this.label1.Location = new System.Drawing.Point(310, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 32);
+            this.label1.Size = new System.Drawing.Size(0, 32);
             this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.tabControl1.Location = new System.Drawing.Point(620, 1);
+            this.tabControl1.Location = new System.Drawing.Point(491, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(411, 274);
@@ -227,11 +228,16 @@ namespace TMPlab5_clocks
             this.ShowTime2.UseVisualStyleBackColor = true;
             this.ShowTime2.Click += new System.EventHandler(this.ShowTime2_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 289);
+            this.ClientSize = new System.Drawing.Size(907, 280);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
@@ -268,6 +274,7 @@ namespace TMPlab5_clocks
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button ShowTime2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 

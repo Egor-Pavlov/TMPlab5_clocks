@@ -24,11 +24,6 @@ namespace TMPlab5_clocks
 
             InitializeComponent();
             graphics = this.CreateGraphics();
-
-            //не хочет рисоваться!!!!!!!!!!!!
-            graphics.Clear(Color.White);
-            Pen Circle = new Pen(Color.Red, 5);
-            graphics.DrawEllipse(Circle, offset, offset, 2 * r, 2 * r);//циферблат
         }
         private void Draw(int angleHours, int angleMin, int angleSec)
         {
@@ -88,6 +83,14 @@ namespace TMPlab5_clocks
         private void Form1_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            graphics.Clear(Color.White);
+            Pen Circle = new Pen(Color.Red, 5);
+            graphics.DrawEllipse(Circle, offset, offset, 2 * r, 2 * r);//циферблат
+            timer1.Enabled = false;
         }
     }
 }
