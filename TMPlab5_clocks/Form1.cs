@@ -21,20 +21,21 @@ namespace TMPlab5_clocks
         {
             InitializeComponent();
             graphics = this.CreateGraphics();
+            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
         }
         private void Draw(int angleHours, int angleMin, int angleSec)
         {
             graphics.Clear(Color.White);
-            int x1 = Convert.ToInt32(r * Math.Cos(angleHours * Math.PI / 180));//вычисляем координаты для каждой стрелки
-            int y1 = Convert.ToInt32(r * Math.Sin(angleHours * Math.PI / 180));
+            int x1 = Convert.ToInt32(0.6 * r * Math.Cos(angleHours * Math.PI / 180));//вычисляем координаты для каждой стрелки
+            int y1 = Convert.ToInt32(0.6 * r * Math.Sin(angleHours * Math.PI / 180));
 
-            int x2 = Convert.ToInt32(r * Math.Cos(angleMin * Math.PI / 180));
-            int y2 = Convert.ToInt32(r * Math.Sin(angleMin * Math.PI / 180));
+            int x2 = Convert.ToInt32(0.8 * r * Math.Cos(angleMin * Math.PI / 180));
+            int y2 = Convert.ToInt32(0.8 * r * Math.Sin(angleMin * Math.PI / 180));
 
-            int x3 = Convert.ToInt32(r * Math.Cos(angleSec * Math.PI / 180));
-            int y3 = Convert.ToInt32(r * Math.Sin(angleSec * Math.PI / 180));
+            int x3 = Convert.ToInt32(0.9 * r * Math.Cos(angleSec * Math.PI / 180));
+            int y3 = Convert.ToInt32(0.9 * r * Math.Sin(angleSec * Math.PI / 180));
 
-            Pen Circle = new Pen(Color.Red, 5);
+            Pen Circle = new Pen(Color.DarkGray, 5);
             graphics.DrawEllipse(Circle, offset, offset, 2 * r, 2 * r);//циферблат
 
             Pen HourPen = new Pen(Color.Black, 5);//создаем ручки разной толщины для рисования
@@ -44,12 +45,15 @@ namespace TMPlab5_clocks
             graphics.DrawLine(HourPen, offset + r, offset + r, x1 + offset * 6, y1 + offset * 6);//стрелка часы
             graphics.DrawLine(MinPen, offset + r, offset + r, x2 + offset * 6, y2 + offset * 6);//стрелка минуты
             graphics.DrawLine(SecPen, offset + r, offset + r, x3 + offset * 6, y3 + offset * 6);//стрелка секунды
+            
+            // Кружочек в центре
+            graphics.DrawEllipse(new Pen(Color.DarkGray, 5), offset + r - (float)2.5, offset + r - (float)2.5, 5, 5);
         }
 
 
         private void ShowTime1_Click(object sender, EventArgs e)
         {
-            label1.Text = DigitHours.Value.ToString() + ":" + DigitMinutes.Value + ":" + DigitSeconds.Value;
+            label1.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", (int)DigitHours.Value, (int)DigitMinutes.Value, (int)DigitSeconds.Value);
             DigitTime digitTime = new DigitTime((ushort)(DigitHours.Value), (ushort)(DigitMinutes.Value), (ushort)(DigitSeconds.Value));
 
             AnalogAdapter analogAdapter = new AnalogAdapter(digitTime);
@@ -73,14 +77,16 @@ namespace TMPlab5_clocks
 
             AnalogTime analogTime = new AnalogTime((ushort)angleH, (ushort)angleM, (ushort)angleS);
             DigitAdapter digitAdapter = new DigitAdapter(analogTime);
-            label1.Text = digitAdapter.Hour + ":" + digitAdapter.Minute + ":" + digitAdapter.Second;
+            label1.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", digitAdapter.Hour, digitAdapter.Minute, digitAdapter.Second);
         }
 
         private void timer1_Tick(object sender, EventArgs e)//тикает 1 раз, рисует циферблат и больше не тикает
         {
             graphics.Clear(Color.White);
-            Pen Circle = new Pen(Color.Red, 5);
+            Pen Circle = new Pen(Color.DarkGray, 5);
             graphics.DrawEllipse(Circle, offset, offset, 2 * r, 2 * r);//циферблат
+            // Кружочек в центре
+            graphics.DrawEllipse(new Pen(Color.DarkGray, 5), offset + r - (float)2.5, offset + r - (float)2.5, 5, 5);
             timer1.Enabled = false;
         }
     }
