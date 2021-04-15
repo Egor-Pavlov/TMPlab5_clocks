@@ -12,9 +12,67 @@ namespace TMPlab5_clocks
 {
     public partial class Form1 : Form
     {
+        Graphics graphics;
+        int r = 100;
+        int offset = 20;
+
+        int X = 120;
+        int Y = 20;
+
         public Form1()
         {
             InitializeComponent();
+            graphics = this.CreateGraphics();
+        }
+        private void Draw(int angleHours, int angleMin, int angleSec)
+        {
+            graphics.Clear(Color.White);
+            int x1 = Convert.ToInt32(r * Math.Cos(angleHours * Math.PI / 180));
+            int y1 = Convert.ToInt32(r * Math.Sin(angleHours * Math.PI / 180));
+
+            int x2 = Convert.ToInt32(r * Math.Cos(angleMin * Math.PI / 180));
+            int y2 = Convert.ToInt32(r * Math.Sin(angleMin * Math.PI / 180));
+
+            int x3 = Convert.ToInt32(r * Math.Cos(angleSec * Math.PI / 180));
+            int y3 = Convert.ToInt32(r * Math.Sin(angleSec * Math.PI / 180));
+
+            graphics.DrawEllipse(Pens.Red, offset, offset, 2 * r, 2 * r);//циферблат
+
+            graphics.DrawLine(Pens.Yellow, offset + r, offset + r, x1 + offset * 6, y1 + offset * 6);//стрелка часы
+            graphics.DrawLine(Pens.Green, offset + r, offset + r, x2 + offset * 6, y2 + offset * 6);//стрелка минуты
+            graphics.DrawLine(Pens.Blue, offset + r, offset + r, x3 + offset * 6, y3 + offset * 6);//стрелка секунды
+        }
+
+
+        private void ShowTime1_Click(object sender, EventArgs e)
+        {
+
+            label1.Text = DigitHours.Value.ToString() + ":" + DigitMinutes.Value + ":" + DigitSeconds.Value;
+            DigitTime digitTime = new DigitTime((ushort)(DigitHours.Value), (ushort)(DigitMinutes.Value), (ushort)(DigitSeconds.Value));
+
+            AnalogAdapter analogAdapter = new AnalogAdapter(digitTime);
+
+            
+            int angleH = analogAdapter.Hour - 90;
+            int angleM = analogAdapter.Minute - 90;
+            int angleS = analogAdapter.Second - 90;
+
+            Draw(angleH, angleM, angleS);
+          
+        }
+
+        private void ShowTime2_Click(object sender, EventArgs e)
+        {
+            
+            int angleH = Convert.ToInt32(AnalogHours.Value);
+            int angleM = Convert.ToInt32(AnalogMinutes.Value);
+            int angleS = Convert.ToInt32(AnalogSeconds.Value);
+
+            Draw(angleH -90, angleM - 90, angleS - 90);
+
+            AnalogTime analogTime = new AnalogTime((ushort)angleH, (ushort)angleM, (ushort)angleS);
+            DigitAdapter digitAdapter = new DigitAdapter(analogTime);
+            label1.Text = digitAdapter.Hour + ":" + digitAdapter.Minute + ":" + digitAdapter.Second;
         }
     }
 }
