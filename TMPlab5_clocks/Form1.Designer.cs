@@ -242,7 +242,6 @@ namespace TMPlab5_clocks
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Лабораторная работа №5";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AnalogSeconds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogHours)).EndInit();
