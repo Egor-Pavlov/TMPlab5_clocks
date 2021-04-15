@@ -99,11 +99,6 @@ namespace TMPlab5_clocks
             this.AnalogHours.Name = "AnalogHours";
             this.AnalogHours.Size = new System.Drawing.Size(120, 27);
             this.AnalogHours.TabIndex = 6;
-            this.AnalogHours.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
             // 
             // label3
             // 
@@ -118,7 +113,7 @@ namespace TMPlab5_clocks
             // 
             this.DigitSeconds.Location = new System.Drawing.Point(11, 128);
             this.DigitSeconds.Maximum = new decimal(new int[] {
-            60,
+            59,
             0,
             0,
             0});
@@ -130,7 +125,7 @@ namespace TMPlab5_clocks
             // 
             this.DigitMinutes.Location = new System.Drawing.Point(11, 84);
             this.DigitMinutes.Maximum = new decimal(new int[] {
-            60,
+            59,
             0,
             0,
             0});
@@ -241,6 +236,7 @@ namespace TMPlab5_clocks
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Лабораторная работа №5";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.AnalogSeconds)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogMinutes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogHours)).EndInit();

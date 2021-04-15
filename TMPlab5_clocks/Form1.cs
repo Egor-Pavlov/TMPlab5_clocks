@@ -21,8 +21,14 @@ namespace TMPlab5_clocks
 
         public Form1()
         {
+
             InitializeComponent();
             graphics = this.CreateGraphics();
+
+            //не хочет рисоваться!!!!!!!!!!!!
+            graphics.Clear(Color.White);
+            Pen Circle = new Pen(Color.Red, 5);
+            graphics.DrawEllipse(Circle, offset, offset, 2 * r, 2 * r);//циферблат
         }
         private void Draw(int angleHours, int angleMin, int angleSec)
         {
@@ -36,11 +42,15 @@ namespace TMPlab5_clocks
             int x3 = Convert.ToInt32(r * Math.Cos(angleSec * Math.PI / 180));
             int y3 = Convert.ToInt32(r * Math.Sin(angleSec * Math.PI / 180));
 
-            graphics.DrawEllipse(Pens.Red, offset, offset, 2 * r, 2 * r);//циферблат
+            Pen Circle = new Pen(Color.Red, 5);
+            graphics.DrawEllipse(Circle, offset, offset, 2 * r, 2 * r);//циферблат
 
-            graphics.DrawLine(Pens.Yellow, offset + r, offset + r, x1 + offset * 6, y1 + offset * 6);//стрелка часы
-            graphics.DrawLine(Pens.Green, offset + r, offset + r, x2 + offset * 6, y2 + offset * 6);//стрелка минуты
-            graphics.DrawLine(Pens.Blue, offset + r, offset + r, x3 + offset * 6, y3 + offset * 6);//стрелка секунды
+            Pen HourPen = new Pen(Color.Black, 5);
+            Pen MinPen = new Pen(Color.Black, 3);
+            Pen SecPen = new Pen(Color.Black, 2);
+            graphics.DrawLine(HourPen, offset + r, offset + r, x1 + offset * 6, y1 + offset * 6);//стрелка часы
+            graphics.DrawLine(MinPen, offset + r, offset + r, x2 + offset * 6, y2 + offset * 6);//стрелка минуты
+            graphics.DrawLine(SecPen, offset + r, offset + r, x3 + offset * 6, y3 + offset * 6);//стрелка секунды
         }
 
 
@@ -73,6 +83,11 @@ namespace TMPlab5_clocks
             AnalogTime analogTime = new AnalogTime((ushort)angleH, (ushort)angleM, (ushort)angleS);
             DigitAdapter digitAdapter = new DigitAdapter(analogTime);
             label1.Text = digitAdapter.Hour + ":" + digitAdapter.Minute + ":" + digitAdapter.Second;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
