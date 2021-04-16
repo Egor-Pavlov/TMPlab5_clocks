@@ -45,6 +45,8 @@ namespace TMPlab5_clocks
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ShowTime2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.CurrentTime = new System.Windows.Forms.CheckBox();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AnalogSeconds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogMinutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogHours)).BeginInit();
@@ -59,7 +61,7 @@ namespace TMPlab5_clocks
             // ShowTime1
             // 
             this.ShowTime1.Location = new System.Drawing.Point(4, 155);
-            this.ShowTime1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ShowTime1.Margin = new System.Windows.Forms.Padding(2);
             this.ShowTime1.Name = "ShowTime1";
             this.ShowTime1.Size = new System.Drawing.Size(292, 35);
             this.ShowTime1.TabIndex = 9;
@@ -70,7 +72,7 @@ namespace TMPlab5_clocks
             // AnalogSeconds
             // 
             this.AnalogSeconds.Location = new System.Drawing.Point(8, 104);
-            this.AnalogSeconds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AnalogSeconds.Margin = new System.Windows.Forms.Padding(2);
             this.AnalogSeconds.Maximum = new decimal(new int[] {
             359,
             0,
@@ -83,7 +85,7 @@ namespace TMPlab5_clocks
             // AnalogMinutes
             // 
             this.AnalogMinutes.Location = new System.Drawing.Point(8, 68);
-            this.AnalogMinutes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AnalogMinutes.Margin = new System.Windows.Forms.Padding(2);
             this.AnalogMinutes.Maximum = new decimal(new int[] {
             359,
             0,
@@ -96,7 +98,7 @@ namespace TMPlab5_clocks
             // AnalogHours
             // 
             this.AnalogHours.Location = new System.Drawing.Point(8, 32);
-            this.AnalogHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AnalogHours.Margin = new System.Windows.Forms.Padding(2);
             this.AnalogHours.Maximum = new decimal(new int[] {
             359,
             0,
@@ -119,7 +121,7 @@ namespace TMPlab5_clocks
             // DigitSeconds
             // 
             this.DigitSeconds.Location = new System.Drawing.Point(8, 104);
-            this.DigitSeconds.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DigitSeconds.Margin = new System.Windows.Forms.Padding(2);
             this.DigitSeconds.Maximum = new decimal(new int[] {
             59,
             0,
@@ -132,7 +134,7 @@ namespace TMPlab5_clocks
             // DigitMinutes
             // 
             this.DigitMinutes.Location = new System.Drawing.Point(8, 68);
-            this.DigitMinutes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DigitMinutes.Margin = new System.Windows.Forms.Padding(2);
             this.DigitMinutes.Maximum = new decimal(new int[] {
             59,
             0,
@@ -145,7 +147,7 @@ namespace TMPlab5_clocks
             // DigitHours
             // 
             this.DigitHours.Location = new System.Drawing.Point(8, 32);
-            this.DigitHours.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DigitHours.Margin = new System.Windows.Forms.Padding(2);
             this.DigitHours.Maximum = new decimal(new int[] {
             12,
             0,
@@ -201,16 +203,17 @@ namespace TMPlab5_clocks
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.CurrentTime);
             this.tabPage1.Controls.Add(this.ShowTime1);
             this.tabPage1.Controls.Add(this.DigitHours);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.DigitMinutes);
             this.tabPage1.Controls.Add(this.DigitSeconds);
             this.tabPage1.Location = new System.Drawing.Point(4, 26);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.tabPage1.Size = new System.Drawing.Size(298, 195);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2);
+            this.tabPage1.Size = new System.Drawing.Size(300, 195);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Числовой формат";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -223,9 +226,9 @@ namespace TMPlab5_clocks
             this.tabPage2.Controls.Add(this.AnalogMinutes);
             this.tabPage2.Controls.Add(this.AnalogHours);
             this.tabPage2.Location = new System.Drawing.Point(4, 26);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2);
             this.tabPage2.Size = new System.Drawing.Size(300, 195);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Аналоговый формат";
@@ -234,7 +237,7 @@ namespace TMPlab5_clocks
             // ShowTime2
             // 
             this.ShowTime2.Location = new System.Drawing.Point(4, 155);
-            this.ShowTime2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ShowTime2.Margin = new System.Windows.Forms.Padding(2);
             this.ShowTime2.Name = "ShowTime2";
             this.ShowTime2.Size = new System.Drawing.Size(292, 35);
             this.ShowTime2.TabIndex = 9;
@@ -247,6 +250,21 @@ namespace TMPlab5_clocks
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // CurrentTime
+            // 
+            this.CurrentTime.AutoSize = true;
+            this.CurrentTime.Location = new System.Drawing.Point(8, 133);
+            this.CurrentTime.Name = "CurrentTime";
+            this.CurrentTime.Size = new System.Drawing.Size(146, 21);
+            this.CurrentTime.TabIndex = 10;
+            this.CurrentTime.Text = "Настоящее время";
+            this.CurrentTime.UseVisualStyleBackColor = true;
+            this.CurrentTime.CheckedChanged += new System.EventHandler(this.CurrentTime_CheckedChanged);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +272,7 @@ namespace TMPlab5_clocks
             this.ClientSize = new System.Drawing.Size(684, 231);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(700, 270);
             this.MinimumSize = new System.Drawing.Size(700, 270);
             this.Name = "Form1";
@@ -291,6 +309,8 @@ namespace TMPlab5_clocks
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button ShowTime2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.CheckBox CurrentTime;
+        private System.Windows.Forms.Timer timer2;
     }
 }
 

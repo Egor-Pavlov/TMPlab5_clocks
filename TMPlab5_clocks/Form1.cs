@@ -89,5 +89,18 @@ namespace TMPlab5_clocks
             graphics.DrawEllipse(new Pen(Color.DarkGray, 5), offset + r - (float)2.5, offset + r - (float)2.5, 5, 5);
             timer1.Enabled = false;
         }
+
+        private void CurrentTime_CheckedChanged(object sender, EventArgs e)
+        {
+            timer2.Enabled = CurrentTime.Checked;
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            AnalogTime Time = new AnalogAdapter(new DigitTime((ushort)DateTime.Now.Hour, (ushort)DateTime.Now.Minute, (ushort)DateTime.Now.Second));
+            DigitTime TimeD = new DigitAdapter(Time);
+            Draw(Time.Hour - 90, Time.Minute - 90, Time.Second - 90);
+            label1.Text = String.Format("{0:D2}:{1:D2}:{2:D2}", TimeD.Hour, TimeD.Minute, TimeD.Second);
+        }
     }
 }
