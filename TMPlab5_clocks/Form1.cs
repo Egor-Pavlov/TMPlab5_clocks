@@ -21,6 +21,7 @@ namespace TMPlab5_clocks
         {
             InitializeComponent();
             graphics = this.CreateGraphics();
+            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
         }
         private void Draw(int angleHours, int angleMin, int angleSec)
         {
