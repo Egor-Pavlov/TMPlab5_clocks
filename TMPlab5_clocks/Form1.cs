@@ -21,10 +21,14 @@ namespace TMPlab5_clocks
         {
             InitializeComponent();
             graphics = this.CreateGraphics();
-            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
         }
         private void Draw(int angleHours, int angleMin, int angleSec)
         {
+            // создание буфера для нового кадра
+            Bitmap Image = new Bitmap(Width, Height);
+            graphics = Graphics.FromImage(Image);
+            graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+
             graphics.Clear(Color.White);
             int x1 = Convert.ToInt32(0.6 * r * Math.Cos(angleHours * Math.PI / 180));//вычисляем координаты для каждой стрелки
             int y1 = Convert.ToInt32(0.6 * r * Math.Sin(angleHours * Math.PI / 180));
@@ -48,6 +52,16 @@ namespace TMPlab5_clocks
             
             // Кружочек в центре
             graphics.DrawEllipse(new Pen(Color.DarkGray, 5), offset + r - (float)2.5, offset + r - (float)2.5, 5, 5);
+
+
+            // теперь нужно скопировать кадр на канвас формы
+            var FormG = CreateGraphics();
+            FormG.DrawImageUnscaled(Image, 0, 0);
+
+            // освобождаем задействованные в операции ресурсы
+            graphics.Dispose();
+            Image.Dispose();
+            FormG.Dispose();
         }
 
 

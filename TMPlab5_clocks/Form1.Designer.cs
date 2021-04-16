@@ -42,10 +42,10 @@ namespace TMPlab5_clocks
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.CurrentTime = new System.Windows.Forms.CheckBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.ShowTime2 = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.CurrentTime = new System.Windows.Forms.CheckBox();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.AnalogSeconds)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AnalogMinutes)).BeginInit();
@@ -218,6 +218,17 @@ namespace TMPlab5_clocks
             this.tabPage1.Text = "Числовой формат";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // CurrentTime
+            // 
+            this.CurrentTime.AutoSize = true;
+            this.CurrentTime.Location = new System.Drawing.Point(8, 133);
+            this.CurrentTime.Name = "CurrentTime";
+            this.CurrentTime.Size = new System.Drawing.Size(146, 21);
+            this.CurrentTime.TabIndex = 10;
+            this.CurrentTime.Text = "Настоящее время";
+            this.CurrentTime.UseVisualStyleBackColor = true;
+            this.CurrentTime.CheckedChanged += new System.EventHandler(this.CurrentTime_CheckedChanged);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.ShowTime2);
@@ -249,17 +260,6 @@ namespace TMPlab5_clocks
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // CurrentTime
-            // 
-            this.CurrentTime.AutoSize = true;
-            this.CurrentTime.Location = new System.Drawing.Point(8, 133);
-            this.CurrentTime.Name = "CurrentTime";
-            this.CurrentTime.Size = new System.Drawing.Size(146, 21);
-            this.CurrentTime.TabIndex = 10;
-            this.CurrentTime.Text = "Настоящее время";
-            this.CurrentTime.UseVisualStyleBackColor = true;
-            this.CurrentTime.CheckedChanged += new System.EventHandler(this.CurrentTime_CheckedChanged);
             // 
             // timer2
             // 
